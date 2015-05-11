@@ -28,9 +28,8 @@ public class ChannelMembers {
     
 	private List<Client> ProtectedOperators = new ArrayList<Client>();
 	private List<Client> Operators = new ArrayList<Client>();
-	private List<Client> Operators = new ArrayList<Client>();
+	private List<Client> HalfOperators = new ArrayList<Client>();
 	private List<Client> Voices = new ArrayList<Client>();
 	private List<Client> Members = new ArrayList<Client>();
 	private List<Client> Invited = new ArrayList<Client>();
-
 }
