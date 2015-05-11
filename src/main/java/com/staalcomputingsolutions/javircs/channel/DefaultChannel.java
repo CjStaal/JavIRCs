@@ -22,5 +22,15 @@ package com.staalcomputingsolutions.javircs.channel;
  * @author Charles Joseph Staal
  */
 public class DefaultChannel implements Channel{
+
+    @Override
+    public String getMode() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void removeMember(Client clientToBeRemoved) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
