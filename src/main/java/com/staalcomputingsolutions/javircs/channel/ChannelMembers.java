@@ -17,23 +17,20 @@
  */
 package com.staalcomputingsolutions.javircs.channel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Charles Joseph Staal
  */
-public class DefaultChannelContext implements ChannelContext{
+public class ChannelMembers {
     
-    private ChannelPermissions channelPermissions;
-    
-    private String channelName, channelTopic, channelKey;
-    
-    private Client channelOwner;
-    
-    private int channelMemberLimit;
-    
-    private ChannelMembers channelMembers;
-    
-    public DefaultChannelContext(){
-        
-    }
+	private List<Client> ProtectedOperators = new ArrayList<Client>();
+	private List<Client> Operators = new ArrayList<Client>();
+	private List<Client> Operators = new ArrayList<Client>();
+	private List<Client> Voices = new ArrayList<Client>();
+	private List<Client> Members = new ArrayList<Client>();
+	private List<Client> Invited = new ArrayList<Client>();
+
 }

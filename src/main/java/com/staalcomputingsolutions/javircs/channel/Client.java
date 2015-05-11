@@ -21,19 +21,6 @@ package com.staalcomputingsolutions.javircs.channel;
  *
  * @author Charles Joseph Staal
  */
-public class DefaultChannelContext implements ChannelContext{
+public class Client {
     
-    private ChannelPermissions channelPermissions;
-    
-    private String channelName, channelTopic, channelKey;
-    
-    private Client channelOwner;
-    
-    private int channelMemberLimit;
-    
-    private ChannelMembers channelMembers;
-    
-    public DefaultChannelContext(){
-        
-    }
 }
