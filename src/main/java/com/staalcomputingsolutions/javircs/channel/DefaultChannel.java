@@ -18,6 +18,9 @@
 package com.staalcomputingsolutions.javircs.channel;
 
 /**
+ * This is the default channel object. The constructor takes a ChannelContext
+ * object and uses that for all the information that the channel needs to be set
+ * up.
  *
  * @author Charles Joseph Staal
  */
@@ -25,19 +28,35 @@ public class DefaultChannel implements Channel {
 
     private ChannelContext context;
 
+    /**
+     * This is used to create the channel. 
+     * @param context {@link ChannelContext} object for configuration.
+     */
     public DefaultChannel(final ChannelContext context) {
         this.context = context;
     }
 
+    /**
+     * Returns the {@link ChannelContext} object.
+     * @return {@link ChannelContext}
+     */
     public ChannelContext getChannelContext() {
         return this.context;
     }
 
+    /**
+     * Returns the current mode of the channel.
+     * @return {@link String} object with the current mode.
+     */
     @Override
     public String getMode() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * Removes a {@link Client} member.
+     * @param clientToBeRemoved {@link Client} to be removed.
+     */
     @Override
     public void removeMember(Client clientToBeRemoved) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
