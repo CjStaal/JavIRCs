@@ -23,4 +23,7 @@ package com.staalcomputingsolutions.javircs.channel;
  */
 public interface Channel {
     
+    public String getMode();
+    
+    public void removeMember(Client clientToBeRemoved);
 }
