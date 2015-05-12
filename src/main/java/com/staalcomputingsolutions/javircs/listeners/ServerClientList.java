@@ -23,9 +23,9 @@ import com.staalcomputingsolutions.javircs.client.Client;
  *
  * @author Charles Joseph Staal
  */
-class ServerClientList {
+public class ServerClientList {
 
-    void addClient(Client createClient) {
+    public void addClient(Client createClient) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
