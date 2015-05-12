@@ -29,13 +29,13 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public class ConnectionListener implements Runnable {
 
-    private final AtomicBoolean started;
-
-    private SocketAddress serverSocketAddress;
-
     private int port = 1380; //Default port.
 
+    private final AtomicBoolean started;
+
     private ServerClientList serverClientList;
+
+    private SocketAddress serverSocketAddress;
 
     public ConnectionListener() {
         this.started = new AtomicBoolean();
