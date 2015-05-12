@@ -18,10 +18,13 @@
 package com.staalcomputingsolutions.javircs.listeners;
 
 import com.staalcomputingsolutions.javircs.client.factory.ClientFactory;
+import com.staalcomputingsolutions.javircs.server.ClientHandler;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.SocketAddress;
 import java.util.concurrent.atomic.AtomicBoolean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -29,28 +32,19 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public class ConnectionListener implements Runnable {
 
+    private final Logger logger = LoggerFactory.getLogger(this.getClass().getName());
+
     private int port = 1380; //Default port.
 
     private final AtomicBoolean started;
 
-    private ServerClientList serverClientList;
-
     private SocketAddress serverSocketAddress;
 
-    public ConnectionListener() {
+    public ConnectionListener(int port) {
         this.started = new AtomicBoolean();
         this.started.set(false);
-        this.serverClientList = new ServerClientList(); //Default serverClientList.
-    }
-
-    public ConnectionListener setServerClientList(ServerClientList serverClientList) {
-        this.serverClientList = serverClientList;
-        return this;
-    }
-
-    public ConnectionListener setPort(int port) {
-        this.port = port;
-        return this;
+        this.setPort(port);
+        this.logger.info("New connection listener with name: " + this.getClass().getName() + ", created.");
     }
 
     @Override
@@ -62,16 +56,21 @@ public class ConnectionListener implements Runnable {
             int counter = 0;
 
             while (started.get()) {
-                this.serverClientList.addClient(ClientFactory.createClient(serverSocket.accept(), counter++));
+                ClientHandler.handleNewClient(ClientFactory.createClient(serverSocket.accept(), counter++));
             }
         } catch (IOException ex) {
-
+            logger.error("Error in run method of +" + this.getClass().getName(), ex);
         }
         this.started.set(false);
     }
 
-    public ServerClientList getServerClientList() {
-        return this.serverClientList;
+    public void setPort(int port) {
+        this.port = port;
+        logger.info(this.getClass().getName() + " port has been set to " + this.getPort());
+    }
+    
+    public int getPort(){
+        return this.port;
     }
 
     public SocketAddress getServerSocketAddress() {
@@ -80,5 +79,9 @@ public class ConnectionListener implements Runnable {
 
     public boolean isStarted() {
         return this.started.get();
+    }
+
+    public void setRunning(boolean running) {
+        this.started.set(running);
     }
 }
