@@ -29,7 +29,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public class ConnectionListener implements Runnable {
 
-    private AtomicBoolean started;
+    private final AtomicBoolean started;
 
     private SocketAddress serverSocketAddress;
 
