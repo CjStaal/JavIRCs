@@ -17,6 +17,8 @@
  */
 package com.staalcomputingsolutions.javircs.channel;
 
+import com.staalcomputingsolutions.javircs.client.Client;
+
 /**
  *
  * @author Charles Joseph Staal

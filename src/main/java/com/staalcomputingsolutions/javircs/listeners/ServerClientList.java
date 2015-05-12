@@ -17,7 +17,7 @@
  */
 package com.staalcomputingsolutions.javircs.listeners;
 
-import com.staalcomputingsolutions.javircs.channel.Client;
+import com.staalcomputingsolutions.javircs.client.Client;
 
 /**
  *

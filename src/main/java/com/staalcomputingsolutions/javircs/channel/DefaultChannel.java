@@ -17,6 +17,8 @@
  */
 package com.staalcomputingsolutions.javircs.channel;
 
+import com.staalcomputingsolutions.javircs.client.Client;
+
 /**
  * This is the default channel object. The constructor takes a ChannelContext
  * object and uses that for all the information that the channel needs to be set

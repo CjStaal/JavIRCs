@@ -17,6 +17,7 @@
  */
 package com.staalcomputingsolutions.javircs.listeners;
 
+import com.staalcomputingsolutions.javircs.client.ClientFactory;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.SocketAddress;
@@ -27,6 +28,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * @author Charles Joseph Staal
  */
 public class ConnectionListener implements Runnable{
+    
     private static AtomicBoolean started = new AtomicBoolean();
 
     private static SocketAddress serverSocketAddress;

@@ -17,6 +17,7 @@
  */
 package com.staalcomputingsolutions.javircs.channel;
 
+import com.staalcomputingsolutions.javircs.client.Client;
 import java.util.ArrayList;
 import java.util.List;
 
