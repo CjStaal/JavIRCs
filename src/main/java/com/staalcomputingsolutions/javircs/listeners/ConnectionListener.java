@@ -27,65 +27,63 @@ import java.util.concurrent.atomic.AtomicBoolean;
  *
  * @author Charles Joseph Staal
  */
-public class ConnectionListener implements Runnable{
-    
-    private static AtomicBoolean started = new AtomicBoolean();
+public class ConnectionListener implements Runnable {
 
-    private static SocketAddress serverSocketAddress;
-    private static int port = 1380;
-    
-    private static ServerClientList serverClientList;
-    
-    private static ConnectionListener instance = null;
-    
-    private ConnectionListener(){
-        ConnectionListener.started.set(false);
+    private AtomicBoolean started;
+
+    private SocketAddress serverSocketAddress;
+
+    private int port = 1380; //Default port.
+
+    private ServerClientList serverClientList;
+
+    private ConnectionListener instance = null;
+
+    public ConnectionListener() {
+        this.started = new AtomicBoolean();
+        this.started.set(false);
+        this.serverClientList = new ServerClientList(); //Default serverClientList.
     }
-    
-    public ConnectionListener getInstance(){
-        if(instance == null){
+
+    public ConnectionListener setServerClientList(ServerClientList serverClientList) {
+        this.serverClientList = serverClientList;
+        return this;
+    }
+
+    public ConnectionListener setPort(int port) {
+        this.port = port;
+        return this;
+    }
+
+    public ConnectionListener getInstance() {
+        if (instance == null) {
             instance = new ConnectionListener();
         }
         return instance;
     }
-    
+
     @Override
     public void run() {
-        ConnectionListener.started.set(true);
-        try(ServerSocket serverSocket = new ServerSocket(port)){
-            ConnectionListener.serverSocketAddress = serverSocket.getLocalSocketAddress();
-            
+        this.started.set(true);
+        try (ServerSocket serverSocket = new ServerSocket(port)) {
+            this.serverSocketAddress = serverSocket.getLocalSocketAddress();
+
             int counter = 0;
-            
-            while(started.get()){
-                ConnectionListener.serverClientList.addClient(ClientFactory.createClient(serverSocket.accept(), counter++));
+
+            while (started.get()) {
+                this.serverClientList.addClient(ClientFactory.createClient(serverSocket.accept(), counter++));
             }
-        } catch (IOException ex){
-            
+        } catch (IOException ex) {
+
         }
+        this.started.set(false);
     }
-    
-    public static void setPort(int port) throws ConnectionListenerException{
-        if(instance != null){
-            ConnectionListener.port = port;
-        } else {
-            throw new ConnectionListenerException("The connection listener has not been initialized.");
-        }
+
+    public SocketAddress getServerSocketAddress() {
+        return this.serverSocketAddress;
     }
-    
-    public static void setClientList(ServerClientList serverClientList) throws ConnectionListenerException{
-        if(instance != null){
-            ConnectionListener.serverClientList = serverClientList;
-        } else {
-            throw new ConnectionListenerException("The connection listener has not been initialized.");
-        }
-    }
-    
-    public static SocketAddress getServerSocketAddress(){
-        return ConnectionListener.serverSocketAddress;
-    }
-    
-    public static boolean isStarted(){
-        return ConnectionListener.started.get();
+
+    public boolean isStarted() {
+        return this.started.get();
     }
 }
