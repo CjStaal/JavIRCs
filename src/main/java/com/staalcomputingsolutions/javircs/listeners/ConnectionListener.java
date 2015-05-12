@@ -53,10 +53,6 @@ public class ConnectionListener implements Runnable {
         return this;
     }
 
-    public ServerClientList getServerClientList(){
-        return this.serverClientList;
-    }
-    
     @Override
     public void run() {
         this.started.set(true);
@@ -72,6 +68,10 @@ public class ConnectionListener implements Runnable {
 
         }
         this.started.set(false);
+    }
+
+    public ServerClientList getServerClientList() {
+        return this.serverClientList;
     }
 
     public SocketAddress getServerSocketAddress() {
