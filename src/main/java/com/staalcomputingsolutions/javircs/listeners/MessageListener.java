@@ -17,10 +17,30 @@
  */
 package com.staalcomputingsolutions.javircs.listeners;
 
+import com.staalcomputingsolutions.javircs.client.Client;
+import com.staalcomputingsolutions.javircs.server.ServerContext;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 /**
  *
  * @author Charles Joseph Staal
  */
-public class MessageListener {
-    
+public class MessageListener implements Runnable {
+
+    private final AtomicBoolean started = new AtomicBoolean();
+    private ServerContext serverContext;
+    public MessageListener(ServerContext serverContext) {
+        this.started.set(false);
+        this.serverContext = serverContext;
+    }
+
+    @Override
+    public void run() {
+        this.started.set(true);
+        while (this.started.get()) {
+            for(Client client : this.serverContext.getServerClientList().getList()){
+                if(client.)
+            }
+        }
+    }
 }
