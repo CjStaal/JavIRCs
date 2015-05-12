@@ -21,6 +21,6 @@ package com.staalcomputingsolutions.javircs.client;
  *
  * @author Charles Joseph Staal
  */
-public interface Client {
+public abstract class DefaultClient implements Client{
     
 }
