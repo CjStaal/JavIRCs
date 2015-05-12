@@ -26,10 +26,12 @@ import java.util.Calendar;
  */
 public class Main {
 
-    private String version = "v0.0.1";
+    private final String version = "v0.0.1";
     private String timeStarted = "";
 
     public static void main(String[] args) {
+        
+        
     }
 
     private String startTime() {

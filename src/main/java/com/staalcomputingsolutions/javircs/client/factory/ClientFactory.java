@@ -15,9 +15,9 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package com.staalcomputingsolutions.javircs.listeners;
+package com.staalcomputingsolutions.javircs.client.factory;
 
-import com.staalcomputingsolutions.javircs.channel.Client;
+import com.staalcomputingsolutions.javircs.client.Client;
 import java.net.Socket;
 
 /**

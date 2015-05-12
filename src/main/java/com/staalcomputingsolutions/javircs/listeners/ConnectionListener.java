@@ -17,7 +17,7 @@
  */
 package com.staalcomputingsolutions.javircs.listeners;
 
-import com.staalcomputingsolutions.javircs.client.ClientFactory;
+import com.staalcomputingsolutions.javircs.client.factory.ClientFactory;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.SocketAddress;
