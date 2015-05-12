@@ -21,6 +21,11 @@ package com.staalcomputingsolutions.javircs.server;
  *
  * @author Charles Joseph Staal
  */
-public class DefaultServerContext {
+public class DefaultServerContext implements ServerContext {
+
+    @Override
+    public ServerClientList getServerClientList() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
