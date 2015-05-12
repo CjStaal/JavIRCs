@@ -18,6 +18,8 @@
 package com.staalcomputingsolutions.javircs.listeners;
 
 import com.staalcomputingsolutions.javircs.client.Client;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -25,8 +27,18 @@ import com.staalcomputingsolutions.javircs.client.Client;
  */
 public class ServerClientList {
 
-    public void addClient(Client createClient) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private List<Client> serverClientList = new ArrayList();
+    
+    public ServerClientList(){
+        
+    }
+    
+    public void removeClient(Client client){
+        this.serverClientList.remove(client);
+    }
+    
+    public void addClient(Client client) {
+        this.serverClientList.add(client);
     }
     
 }
