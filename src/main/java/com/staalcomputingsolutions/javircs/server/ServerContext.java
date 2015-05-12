@@ -23,4 +23,5 @@ package com.staalcomputingsolutions.javircs.server;
  */
 public interface ServerContext {
     
+    public ServerClientList getServerClientList();
 }
