@@ -56,6 +56,7 @@ public class ConnectionListener implements Runnable {
             int counter = 0;
 
             while (started.get()) {
+                /* Probably going to use a different method to handle new clients as this will take too long in my opinion. */
                 ClientHandler.handleNewClient(ClientFactory.createClient(serverSocket.accept(), counter++));
             }
         } catch (IOException ex) {
