@@ -37,8 +37,6 @@ public class ConnectionListener implements Runnable {
 
     private ServerClientList serverClientList;
 
-    private ConnectionListener instance = null;
-
     public ConnectionListener() {
         this.started = new AtomicBoolean();
         this.started.set(false);
@@ -53,13 +51,6 @@ public class ConnectionListener implements Runnable {
     public ConnectionListener setPort(int port) {
         this.port = port;
         return this;
-    }
-
-    public ConnectionListener getInstance() {
-        if (instance == null) {
-            instance = new ConnectionListener();
-        }
-        return instance;
     }
 
     @Override
